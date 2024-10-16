@@ -7,6 +7,106 @@
     <title>Muskan-Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<!-- <script>
+   (function() {
+      emailjs.init("jWAkobnISgE3VipTx"); // Replace with your EmailJS user ID
+   })();
+</script> -->
+
+    <style>
+         /* Custom CSS variables */
+         :root {
+            --bgOrange: #e84949; 
+            --buttonPadding: 10px 20px;
+            --shadowColor: rgba(0, 0, 0, 0.2);
+            --closeBtnColor: #7f7c7c;
+        }
+
+        /* Hire Me form styles */
+        #hireMeForm {
+            display: none;
+            position: fixed;
+            margin: 20px;
+            padding: 20px;
+            top: 50%;
+            left: 50%;
+            height: auto;
+            width: 340px;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid var(--bgOrange);
+            box-shadow: 0px 8px 20px var(--shadowColor);
+            z-index: 1000;
+        }
+
+        /* Submit button styling */
+        button[type="submit"] {
+            background-color: var(--bgOrange);
+            color: white;
+            border: none;
+            padding: var(--buttonPadding);
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff6868;
+            color: black;
+        }
+
+        /* Close button styling */
+        .close-btn {
+            background-color: var(--closeBtnColor);
+            color:white;
+            border: none;
+            padding: var(--buttonPadding);
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px; /* Margin between buttons */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #666666; /* Darker grey on hover */
+            color: black;
+        }
+
+        /* General input styling */
+        input[type="text"], input[type="email"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: var(--bgOrange);
+        }
+
+        /* Basic layout improvement */
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        h2 {
+            color: var(--bgOrange);
+            text-align: center;
+        }
+
+
+      </style>  
 </head>
 
 <body>
@@ -15,8 +115,8 @@
         <!-- navbar section -->
         <div id="nav">
             <div id="n-left">
-                <img src="pinterestdownloader.com-1716057419.603559.jpg" alt="logo">
-                <h4>uskan Malviya</h4>
+                <img src="muskan-logo.png" alt="logo" id="logo">
+                <!-- <h4>uskan Malviya</h4> -->
             </div>
             <div id="n-right">
                 <!-- <a href="#">Home</a> -->
@@ -40,7 +140,25 @@
                     I'm a frontend developer and here is my portfolio website. here you'll learn about my journey as a
                     frontend developer.
                 </div>
-                <button>Hire Me</button>
+                <button onclick="openHireMeForm()">Hire Me</button>
+                <!-- Hidden Hire Me form -->
+                <div id="hireMeForm">
+                    <h2>Hire Me</h2>
+                    <form id="hireMeFormEmailJS">
+                        <label for="name" style="font-weight: 650;">Name:</label><br>
+                        <input type="text" id="name" name="from_name" required><br><br> 
+                    
+                        <label for="email" style="font-weight: 650;">Email:</label><br>
+                        <input type="email" id="email" name="email_id" required><br><br>
+                    
+                        <label for="message" style="font-weight: 650;">Message:</label><br>
+                        <textarea id="message" name="message" required></textarea><br><br>
+                    
+                        <button type="submit">Submit</button>
+                    </form>
+                    
+                    <button class="close-btn" onclick="closeHireMeForm()">Close</button>
+                </div>                
 
             </div>
             <div class="hero-right">
@@ -78,18 +196,18 @@
                         <div class="project-skill-container">
                             <img class="project-skill" src="VN_Stickers/HTML.png" alt="">
                             <img class="project-skill" src="VN_Stickers/CSS.png" alt="">
-                            <!-- <img class="project-skill" src="VN_Stickers/Github.svg" alt=""> -->
+                            <img class="project-skill" src="VN_Stickers/Github.svg" alt="">
                             <img class="project-skill" src="VN_Stickers/Git.svg" alt="">
                         </div>
-                        <div class="project-heading">Our Adventages</div>
-                        <div class="project-subheading">It was just a frontend page that show the feature of that
-                            website.</div>
+                        <div class="project-heading">3D Animation</div>
+                        <div class="project-subheading">Creating a 3D experience using CSS animations—making web pages come to life!</div>
                         <div class="btn-group">
                             <button>Read More</button>
-                            <a href="https://github.com/Muskanmalviyaa" target="_blank" title="GitHub">
-                                <i  class="fab fa-github icon"></i>
+                            <a href="https://github.com/Muskanmalviyaa/3-DAnimation" target="_blank" title="GitHub">
+                                <i class="fab fa-github icon"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/muskan-malviya-506a422a2" target="_blank" title="LinkedIn">
+                            <a href="https://www.linkedin.com/posts/muskanmalviya21_3danimation-opensource-animationcommunity-activity-7219999763142701057-qGWT?utm_source=share&utm_medium=member_desktop" target="_blank"
+                                title="LinkedIn">
                                 <i class="fab fa-linkedin icon"></i>
                             </a>
                         </div>
@@ -101,15 +219,15 @@
                         <div class="project-skill-container">
                             <img class="project-skill" src="VN_Stickers/HTML.png" alt="">
                             <img class="project-skill" src="VN_Stickers/CSS.png" alt="">
+                            <img class="project-skill" src="VN_Stickers/Javascript.svg" alt="">
                             <img class="project-skill" src="VN_Stickers/Github.svg" alt="">
                             <img class="project-skill" src="VN_Stickers/Git.svg" alt="">
                         </div>
-                        <div class="project-heading">Building Experts</div>
-                        <div class="project-subheading">This architecture and interior design agency website features a
-                            sleek, modern design with a full-width hero image and bold headline.</div>
+                        <div class="project-heading">Rightnews.in</div>
+                        <div class="project-subheading">Get the news you need, built with the precision of HTML, CSS, and JavaScript at RightNews.in!</div>
                         <div class="btn-group">
                             <button>Read More</button>
-                            <a href="https://github.com/Muskanmalviyaa" target="_blank">
+                            <a href="https://github.com/Muskanmalviyaa/News-website" target="_blank">
                                 <i title="githublink" class="fab fa-github icon"></i>
                                 <a href="https://www.linkedin.com/in/muskan-malviya-506a422a2" target="_blank">
                                     <i title="LinkedIn Link" class="fab fa-linkedin icon"></i>
@@ -124,18 +242,17 @@
                         <div class="project-skill-container">
                             <img class="project-skill" src="VN_Stickers/HTML.png" alt="">
                             <img class="project-skill" src="VN_Stickers/CSS.png" alt="">
+                            <img class="project-skill" src="VN_Stickers/Tailwind.png" alt="">
                             <img class="project-skill" src="VN_Stickers/Github.svg" alt="">
                             <img class="project-skill" src="VN_Stickers/Git.svg" alt="">
                         </div>
-                        <div class="project-heading">Adventure Landing Page with Parallax Effect</div>
-                        <div class="project-subheading">The page utilizes a parallax scrolling effect, where the
-                            background image moves at a different speed than the foreground content, creating a dynamic
-                            experience.</div>
+                        <div class="project-heading">Razorpay Clone</div>
+                        <div class="project-subheading"> Recreating Razorpay’s sleek design with Tailwind CSS—where style meets seamless payment experiences!</div>
                         <div class="btn-group">
                             <button>Read More</button>
-                            <a href="https://github.com/Muskanmalviyaa" target="_blank">
+                            <a href="https://github.com/Muskanmalviyaa/razorpayclone" target="_blank">
                                 <i title="githublink" class="fab fa-github icon"></i>
-                                <a href="https://www.linkedin.com/in/muskan-malviya-506a422a2" target="_blank">
+                                <a href="https://www.linkedin.com/posts/muskanmalviya21_webdevelopment-tailwindcss-razorpayclone-activity-7213596570691244034-MghZ?utm_source=share&utm_medium=member_desktop" target="_blank">
                                     <i title="LinkedIn Link" class="fab fa-linkedin icon"></i>
                                 </a>
                         </div>
@@ -179,21 +296,19 @@
                 </div>
                 <div class="skills-container-subheading">
                     <p>
-                        Hii Everyone My name is Muskan Malviya, I'm a Frontend Developer. I'm currently pursuing my
+                        Hii Everyone My name is Muskan Malviya, I'm currently pursuing my
                         Master of Computer Applications (MCA) degree at OIST college, With a keen interest in web
                         development.
                     </p><br>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quisquam eum vel,
-                        reprehenderit quas nam delectus doloremque! Quod, reiciendis, sint ex neque eius perferendis
-                        ducimus optio libero eligendi doloremque dignissimos? Enim blanditiis corporis consectetur
-                        voluptas.
+                        I’m passionate about web development and have a solid foundation in HTML, which allows me to create well-structured and accessible web pages. With CSS, I love bringing designs to life and ensuring they look great on any device. I particularly enjoy using Tailwind CSS, which offers a utility-first approach that makes it easy to build custom, responsive designs.
                     </p><br>
 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt neque optio nam provident
-                        velit, consectetur iure, suscipit aliquam pariatur nobis, quis sed dolore voluptates excepturi
-                        quam perspiciatis obcaecati laboriosam saepe esse adipisci et harum odit.
+                        My enthusiasm for JavaScript helps me add interactivity and dynamism, making websites more engaging for users. To keep my projects organized, I rely on Git for version control and collaboration, and I showcase my work on GitHub, where I can connect with other developers and learn from the community. 
+                    </p>
+                    <p>I’m still learning something new every day, which keeps my passion for web development alive!
+
                     </p>
                 </div>
             </div>
@@ -220,53 +335,52 @@
                 Questions, Thoughts, Or Just Want To Say Hello?
             </h3>
             <div class="contact-form-container">
-                <form class="form" action="">
+                <form class="form" action="/send-email" method="POST">
                     <div class="formfield-container">
-                        <input type="text" name="name" class="formfield" id="" placeholder="Enter your name">
-                        <input type="email" name="email" class="formfield" id="" placeholder="Enter your email address">
-                        <input type="text" name="subject" class="formfield" id="" placeholder="Enter your subject">
-                        <textarea name="message" id="" cols="30" rows="10" class="formfield formfield-container"
-                            placeholder="Enter your message"></textarea>
-
+                        <input type="text" name="name" class="formfield" placeholder="Enter your name" required>
+                        <input type="email" name="email" class="formfield" placeholder="Enter your email address" required>
+                        <input type="text" name="subject" class="formfield" placeholder="Enter your subject" required>
+                        <textarea name="message" cols="30" rows="10" class="formfield formfield-container"
+                            placeholder="Enter your message" required></textarea>
                     </div>
-                    <button type="submit" class="" id="submit-btn">Send Message <i
-                            class="submit-icon fa-solid fa-paper-plane"></i></button>
+                    <button type="submit" id="submit-btn" >Send Message  <i class="submit-icon fa-solid fa-paper-plane"></i></button>
                 </form>
+
             </div>
         </div>
         <!-- contact section close here -->
 
         <!-- footer section -->
-       <footer>
-        <div class="footer">
-            <div class="footer-fadded-text">
-                Muskan Malviya
-            </div>
-            <div class="footer-link">
-                <div>
-                    <a href="#hero">Start</a>
-                    <a href="#project">Projects</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#contact">Contact Me</a>
+        <footer>
+            <div class="footer">
+                <div class="footer-fadded-text">
+                    Muskan Malviya
+                </div>
+                <div class="footer-link">
+                    <div>
+                        <a href="#hero">Start</a>
+                        <a href="#project">Projects</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#contact">Contact Me</a>
+                    </div>
+                </div>
+                <div class="footer-icon">
+                    <a href="https://github.com/Muskanmalviyaa" target="_blank">
+                        <i class="fa-brands fa-github icon"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muskanmalviya21" target="_blank">
+                        <i title="LinkedIn Link" class="fab fa-linkedin icon"></i>
+                    </a>
+                    <a href="https://www.instagram.com/___muskanmalviya_?igsh=Nmk4cmYzZjBrYmd4" target="_blank">
+                        <i class="fa-brands fa-instagram icon"></i>
+                    </a>
+                    <a href="https://wa.me/+919399646973?text=Hello%20there!" target="_blank">
+                        <i class="fa-brands fa-whatsapp icon" aria-hidden="true"></i>
+                    </a>
+
                 </div>
             </div>
-            <div class="footer-icon">
-                <a href="https://github.com/Muskanmalviyaa" target="_blank">
-                    <i class="fa-brands fa-github icon"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/muskanmalviya21" target="_blank">
-                    <i title="LinkedIn Link" class="fab fa-linkedin icon"></i>
-                </a>
-                <a href="https://www.instagram.com/invites/contact/?igsh=ZXk1Zjduc21uc2Jj&utm_content=ipm2q20/___muskanmalviya_" target="_blank">
-                    <i class="fa-brands fa-instagram icon"></i>
-                </a>
-               <a href="https://wa.me/+919399646973?text=Hello%20there!" target="_blank">
-                <i class="fa-brands fa-whatsapp icon" aria-hidden="true"></i>
-               </a>
-                
-            </div>
-        </div>
-       </footer>
+        </footer>
 
 
         <!-- main section close here -->
@@ -276,8 +390,8 @@
     <script>
         var typeData = new Typed(".role", {
             strings: [
-                "Fontend Developer.",
-                "Wed Developer.",
+                "Frontend Developer.",
+                "Web Developer.",
                 "coder.",
             ],
             loop: true,
@@ -285,8 +399,10 @@
             backSpeed: 80,
             backDelay: 1000,
         });
-    </script>
 
+
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
